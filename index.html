@@ -179,32 +179,7 @@
     <div class="row border-bottom">
         <a name="contact"></a>
         <h2>Contact</h2>
-        <form method="post" id="contact">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div id="form-messages"></div>
-                </div>
-            </div>
-            <div class="hidden">
-                <label for="anschrift">Address</label>
-                <input type="text" id="anschrift" name="anschrift" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control required" />
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" class="form-control required" />
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea rows="3" id="message" name="message" class="form-control required"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-default" id="send_mail">Submit</button>
-            </div>
-        </form>
+        <h3 class="text-center"><a href="mailto:hello@holhar.de">Email me</a> if you like!</h3>
     </div>
     <footer class="row">
         <div class="col-md-12">
@@ -286,79 +261,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.js"></script>
 <script type="text/javascript"  src="resources/github-activity/github-activity-0.1.3.min.js"></script>
 <script type="text/javascript"  src="resources/js/holhar.js"></script>
-<script type="text/javascript">
-
-    var formMessages = $('#form-messages');
-    var sucessMsg = "The message has been sent successfully.";
-    var requestErrorMsg = "Failed to process the form - The form was not filled in correctly.";
-    var serverErrorMsg = "An error occurred while sending the mail.";
-
-    $(document).ready(function() {
-        $("#contact").submit(function(e) {
-            e.preventDefault();
-            sendMail();
-        });
-    });
-
-    function sendMail() {
-
-        var contactFormData = {};
-        contactFormData["anschrift"] = $("#anschrift").val();
-        contactFormData["name"] = $("#name").val();
-        contactFormData["email"] = $("#email").val();
-        contactFormData["message"] = $("#message").val();
-
-        $.ajax({
-            type: 'POST',
-            contentType: "application/json",
-            url: "resources/script/contact.php",
-            data: JSON.stringify(contactFormData),
-            dataType: 'json',
-            timeout: 10000,
-            success: function(data) {
-                handleSuccessResponse(data);
-                clearForm();
-            },
-            error: function(errRes) {
-                handleErrorResponse(errRes);
-            }
-        });
-    }
-
-    function handleSuccessResponse(data) {
-        if(data.toString() === '200') {
-            displaySuccess(sucessMsg);
-        } else if(data.toString() === '400') {
-            displayError(requestErrorMsg);
-        }
-    }
-
-    function handleErrorResponse(errRes) {
-        if (errRes.responseText !== '') {
-            displayError(requestErrorMsg);
-        } else {
-            displayError(serverErrorMsg);
-        }
-    }
-
-    function displaySuccess(msg) {
-        $(formMessages).removeClass('bg-danger');
-        $(formMessages).addClass('bg-success');
-        $(formMessages).text(msg);
-    }
-
-    function displayError(msg) {
-        $(formMessages).removeClass('bg-success');
-        $(formMessages).addClass('bg-danger');
-        $(formMessages).text(msg);
-    }
-
-    function clearForm() {
-        $('#name').val('');
-        $('#email').val('');
-        $('#message').val('');
-    }
-</script>
 </body>
 
 </html>
