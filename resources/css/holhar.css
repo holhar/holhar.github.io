@@ -1,0 +1,76 @@
+.container .row {
+  padding: 0 10px;
+  margin-left: 0px;
+  margin-right: 0px; }
+.container .navbar-default {
+  border: none; }
+  .container .navbar-default .navbar-header h1 {
+    margin-top: 10px; }
+.container .bg-code-img {
+  background-image: url("../img/code_blur.png");
+  background-repeat: no-repeat;
+  background-size: 1000px;
+  background-position: 0 20px; }
+.container .portrait {
+  border-radius: 50%;
+  border: 5px solid #fff; }
+.container .social-media-bar-top {
+  position: relative;
+  top: 5px;
+  padding: 3px 10px;
+  border-radius: 5%; }
+  .container .social-media-bar-top ul {
+    list-style: none;
+    position: relative;
+    display: inline;
+    float: right; }
+    .container .social-media-bar-top ul li {
+      display: inline-block; }
+      .container .social-media-bar-top ul li a {
+        color: #000; }
+        .container .social-media-bar-top ul li a :hover {
+          color: #666; }
+      .container .social-media-bar-top ul li .fa {
+        padding: 0 14px; }
+.container .social-media-bar-bottom a {
+  color: #000; }
+  .container .social-media-bar-bottom a :hover {
+    color: #666; }
+.container .border-bottom {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dedede; }
+.container .hidden {
+  display: none;
+  visibility: hidden; }
+.container .inline-list {
+  list-style: none; }
+  .container .inline-list li {
+    display: inline;
+    padding: 0 25px; }
+
+@media (max-width: 767px) {
+  .navbar-header h1 {
+    font-size: 25px;
+    display: inline-block;
+    width: 75%;
+    position: relative; }
+
+  .bg-code-img {
+    width: 80%; }
+    .bg-code-img .pull-right {
+      position: relative;
+      right: -85px; } }
+@media (min-width: 768px) {
+  .bg-code-img {
+    width: 80%; }
+    .bg-code-img .pull-right {
+      position: relative;
+      right: -130px; } }
+@media (min-width: 992px) {
+  .bg-code-img {
+    width: 90%; }
+    .bg-code-img .pull-right {
+      position: relative;
+      right: -130px; } }
+
+/*# sourceMappingURL=holhar.css.map */
